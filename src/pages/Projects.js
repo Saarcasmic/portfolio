@@ -43,21 +43,36 @@ const ProjectsPage = () => {
   const projects = useMemo(() => [
     {
       id: 1,
-      title: 'Project One',
-      image: '/images/project1.png',
-      description: 'A brief description of Project One.',
-      techStack: 'React, Node.js, MongoDB',
-      githubLink: 'https://github.com/yourprofile/project-one',
+      title: 'FashionMatch',
+      image: 'https://i.ibb.co/C6QLnxV/fashionmatch.png',
+      description: 'A Personalized Fashion Recommendation System.',
+      techStack: 'Python, Machine Learning',
+      githubLink: 'https://github.com/Saarcasmic/FashionMatch',
     },
     {
       id: 2,
-      title: 'Project Two',
-      image: '/images/project2.png',
-      description: 'A brief description of Project Two.',
-      techStack: 'React, Firebase',
-      githubLink: 'https://github.com/yourprofile/project-two',
+      title: 'MoneyMinder',
+      image: 'https://i.ibb.co/Pc9Yp5H/money.jpg',
+      description: 'An application to manage your finances and track expenses.',
+      techStack: 'React, MongoDb, Express, Node.js',
+      githubLink: 'https://github.com/Saarcasmic/finance-manager',
     },
-    // Add more projects as needed
+    {
+      id: 3,
+      title: 'Ingredient-Insighter',
+      image: 'https://github.com/DharmaWarrior/Food-Recipe/assets/97218268/55ee8049-4701-43d2-9b65-cf208a705bd7',
+      description: 'A recipe search engine that provides recipes based on ingredients.',
+      techStack: 'React, Tailwindcss, Css, JavaScript',
+      githubLink: 'https://github.com/Saarcasmic/Food-Recipe',
+    },
+    {
+      id: 4,
+      title: 'VidVerse',
+      image: 'https://i.ibb.co/MSKbbpD/Screenshot-2024-09-21-031448.png',
+      description: 'A platform to stream and watch videos',
+      techStack: 'React, Material-UI, Tailwindcss',
+      githubLink: 'https://github.com/Saarcasmic/vidverse',
+    },
   ], []); // Empty dependency array to ensure this is only created once
 
   useEffect(() => {

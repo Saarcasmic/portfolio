@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-// import emailjs from 'emailjs-com'; // Optional: If you choose to send emails via EmailJS
+import emailjs from 'emailjs-com'; // Optional: If you choose to send emails via EmailJS
 
 const ContactSection = styled.section`
   padding: 60px 20px;
@@ -95,13 +95,13 @@ const ContactForm = () => {
 
   const onSubmit = (data) => {
     // Option 1: Send data to EmailJS
-    /*
+    
     emailjs
       .send(
-        'YOUR_SERVICE_ID',
-        'YOUR_TEMPLATE_ID',
+        'service_r23bvzl',
+        'template_jfuz18w',
         data,
-        'YOUR_USER_ID'
+        'g10hCE96RJKh4Tf3b'
       )
       .then(
         (response) => {
@@ -113,7 +113,7 @@ const ContactForm = () => {
           console.log('FAILED...', err);
         }
       );
-    */
+    
 
     // Option 2: Log data to console (Replace with your backend integration)
     console.log('Form Data:', data);
@@ -121,31 +121,42 @@ const ContactForm = () => {
     reset();
   };
 
-  return (
+return (
     <ContactSection>
-      <h2>Contact Me</h2>
-      <Form onSubmit={handleSubmit(onSubmit)}>
-        <FormGroup>
-          <Label htmlFor="name">Name</Label>
-          <Input id="name" {...register('name')} />
-          {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" {...register('email')} />
-          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="message">Message</Label>
-          <TextArea id="message" {...register('message')} />
-          {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
-        </FormGroup>
-        {/* Optional: Add CAPTCHA here */}
-        <SubmitButton type="submit">Send Message</SubmitButton>
-        {submitted && <SuccessMessage>Your message has been sent successfully!</SuccessMessage>}
-      </Form>
-    </ContactSection>
-  );
+    <h2>Contact Me</h2>
+    <div className='flex flex-row justify-center items-start'>
+        {/* Left Column for Email and Phone */}
+        <div className='flex flex-col items-start mr-10' style={{ minWidth: '250px' }}>
+            <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '1.2rem', marginBottom: '10px' }}>Email: agrawalsaar16@gmail.com</p>
+            <p style={{ fontFamily: 'Arial, sans-serif', fontSize: '1.2rem' }}>Phone: +91 8791567123</p>
+        </div>
+
+        {/* Right Column for the Contact Form */}
+        <div className='flex flex-col'>
+            <Form onSubmit={handleSubmit(onSubmit)}>
+                <FormGroup>
+                    <Label htmlFor="name">Name</Label>
+                    <Input id="name" {...register('name')} />
+                    {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="email">Email</Label>
+                    <Input id="email" type="email" {...register('email')} />
+                    {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="message">Message</Label>
+                    <TextArea id="message" {...register('message')} />
+                    {errors.message && <ErrorMessage>{errors.message.message}</ErrorMessage>}
+                </FormGroup>
+                {/* Optional: Add CAPTCHA here */}
+                <SubmitButton type="submit">Send Message</SubmitButton>
+                {submitted && <SuccessMessage>Your message has been sent successfully!</SuccessMessage>}
+            </Form>
+        </div>
+    </div>
+</ContactSection>
+);
 };
 
 export default ContactForm;

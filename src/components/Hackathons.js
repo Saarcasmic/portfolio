@@ -31,7 +31,7 @@ const HackathonCard = styled(motion.div)`
 const HackathonImage = styled.img`
   width: 100%;
   height: 150px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 5px;
 `;
 
@@ -80,20 +80,17 @@ const CloseButton = styled.button`
 const Hackathons = () => {
   const hackathons = [
     {
-      name: 'Hackathon One',
-      logo: '/images/hackathon1.png',
-      description: 'Developed a web application for task management.',
-      projectLink: 'https://github.com/yourprofile/hackathon-one',
-      certificate: '/certificates/hackathon1.pdf',
-      media: 'https://mediaurl.com/hackathon1',
+      name: 'Flipkart GRiD 5.0 - Software Development Track',
+      logo: 'https://i.ibb.co/rsdtPXY/flipkart-icon.png',
+      description: 'Developed a Personalized Fashion Recommendation System.',
+      projectLink: 'https://github.com/Saarcasmic/FashionMatch',
+      certificate: 'https://unstop.com/certificate-preview/7e7a6b9c-96ea-4170-907b-af4e3eeedc9e',
     },
     {
-      name: 'Hackathon Two',
-      logo: '/images/hackathon2.png',
-      description: 'Created a mobile app for real-time chat.',
-      projectLink: 'https://github.com/yourprofile/hackathon-two',
+      name: 'HackOn With Amazon - Season 3',
+      logo: 'https://i.ibb.co/d667xB2/6502c4544c083-image-9.png',
+      description: 'Qualified for Level 2',
       certificate: '/certificates/hackathon2.pdf',
-      media: 'https://mediaurl.com/hackathon2',
     },
     // Add more hackathons as needed
   ];
@@ -119,7 +116,7 @@ const Hackathons = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <HackathonImage src={hackathon.logo} alt={hackathon.name} loading="lazy" />
+            <HackathonImage src={hackathon.logo} alt={hackathon.name} loading="lazy"  />
             <HackathonTitle>{hackathon.name}</HackathonTitle>
             <HackathonDescription>{hackathon.description}</HackathonDescription>
           </HackathonCard>
@@ -143,6 +140,7 @@ const Hackathons = () => {
               <CloseButton onClick={closeModal}>&times;</CloseButton>
               <h3>{selectedHackathon.name}</h3>
               <p>{selectedHackathon.description}</p>
+              
               <a href={selectedHackathon.projectLink} target="_blank" rel="noopener noreferrer">
                 View Project
               </a>
@@ -151,9 +149,6 @@ const Hackathons = () => {
                 View Certificate
               </a>
               <br />
-              <a href={selectedHackathon.media} target="_blank" rel="noopener noreferrer">
-                Media Coverage
-              </a>
             </ModalContent>
           </ModalBackground>
         )}
