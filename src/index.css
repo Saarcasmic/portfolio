@@ -7,6 +7,52 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.space-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50%, #1a1a1a, #000);
+  overflow: hidden;
+  z-index: -1;
+}
+
+@keyframes move-stars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.stars, .stars2, .stars3 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.stars {
+  background: url(https://www.transparenttextures.com/patterns/stardust.png); /* A simple starry texture */
+  animation: move-stars 200s linear infinite;
+  opacity: 0.6;
+}
+
+.stars2 {
+  background: url(https://www.transparenttextures.com/patterns/stardust.png);
+  animation: move-stars 150s linear infinite;
+  opacity: 0.3;
+}
+
+.stars3 {
+  background: url(https://www.transparenttextures.com/patterns/stardust.png);
+  animation: move-stars 100s linear infinite;
+  opacity: 0.2;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
