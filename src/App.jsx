@@ -1275,6 +1275,11 @@ const ContactPage = () => {
 const App = () => {
   const [page, setPage] = useState('home');
 
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [page]);
+
   return (
     <div className="min-h-screen relative">
       <GlobalStyles />
